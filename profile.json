@@ -1,0 +1,237 @@
+{
+  "name": "Unalivin",
+  "role": "Network & Software Engineer",
+  "employer_line": "Lead Developer @ Sonix-Devs",
+  "location": "Greece",
+  "tagline": "Open-source network tools.",
+  "availability": "Available for new projects.",
+  "intro": "Network and software engineer working in cybersecurity. I'm lead developer at Sonix-Devs, a cybersecurity-focused programming platform, and I build open-source network tools, websites and the backend systems behind them.",
+  "github_user": "unalivin",
+  "leetcode_user": "unalivinx",
+  "portfolio_url": "https://unalivin.github.io/",
+  "proof": [
+    {
+      "value": "Lead",
+      "label": "At Sonix-Devs"
+    },
+    {
+      "value": "2026",
+      "label": "Since May"
+    },
+    {
+      "value": "4",
+      "label": "Core languages"
+    },
+    {
+      "value": "Open",
+      "label": "To new projects"
+    }
+  ],
+  "connect": [
+    {
+      "key": "email",
+      "label": "Email",
+      "icon": "mail",
+      "url": "mailto:unalivin@proton.me",
+      "primary": true
+    },
+    {
+      "key": "portfolio",
+      "label": "Portfolio",
+      "icon": "globe",
+      "url": "https://unalivin.github.io/"
+    },
+    {
+      "key": "github",
+      "label": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/unalivin"
+    },
+    {
+      "key": "x",
+      "label": "X",
+      "icon": "x",
+      "url": "https://x.com/unalivinx"
+    },
+    {
+      "key": "instagram",
+      "label": "Instagram",
+      "icon": "instagram",
+      "url": "https://instagram.com/unalivinx"
+    },
+    {
+      "key": "leetcode",
+      "label": "LeetCode",
+      "icon": "leetcode",
+      "url": "https://leetcode.com/u/unalivinx/"
+    }
+  ],
+  "headers": {
+    "experience": [
+      "01",
+      "where I work",
+      "Experience"
+    ],
+    "stack": [
+      "02",
+      "what I work with",
+      "Tech Stack and Tools"
+    ],
+    "stats": [
+      "03",
+      "GitHub activity and LeetCode",
+      "Coding Stats"
+    ]
+  },
+  "experience_kicker": "Since May 2026",
+  "experience": [
+    {
+      "when": "May 2026 to now",
+      "title": "Lead Developer",
+      "org": "Sonix-Devs",
+      "where": "Greece",
+      "current": true,
+      "tags": [
+        "Security software",
+        "Open-source network tools"
+      ]
+    }
+  ],
+  "stack": [
+    {
+      "name": "Networking and security",
+      "items": [
+        [
+          "Linux",
+          "linux"
+        ],
+        [
+          "Bash",
+          "gnubash"
+        ],
+        [
+          "Lua",
+          null
+        ],
+        [
+          "WebSockets",
+          null
+        ],
+        [
+          "NSE",
+          null
+        ],
+        [
+          "Network Security",
+          null
+        ]
+      ]
+    },
+    {
+      "name": "Languages",
+      "items": [
+        [
+          "Rust",
+          null
+        ],
+        [
+          "Go",
+          "go"
+        ],
+        [
+          "C++",
+          "cplusplus"
+        ],
+        [
+          "Python",
+          "python"
+        ],
+        [
+          "TypeScript",
+          "typescript"
+        ],
+        [
+          "JavaScript",
+          "javascript"
+        ]
+      ]
+    },
+    {
+      "name": "Backend",
+      "items": [
+        [
+          "Node.js",
+          "nodedotjs"
+        ],
+        [
+          "FastAPI",
+          "fastapi"
+        ],
+        [
+          "PostgreSQL",
+          "postgresql"
+        ],
+        [
+          "MongoDB",
+          "mongodb"
+        ],
+        [
+          "Redis",
+          "redis"
+        ],
+        [
+          "GraphQL",
+          null
+        ]
+      ]
+    },
+    {
+      "name": "Web",
+      "items": [
+        [
+          "React",
+          "react"
+        ],
+        [
+          "Next.js",
+          "nextdotjs"
+        ],
+        [
+          "Vite",
+          "vite"
+        ],
+        [
+          "Tailwind CSS",
+          "tailwindcss"
+        ],
+        [
+          "Astro",
+          "astro"
+        ]
+      ]
+    },
+    {
+      "name": "Tools",
+      "items": [
+        [
+          "Git",
+          "git"
+        ],
+        [
+          "GitHub Actions",
+          "githubactions"
+        ],
+        [
+          "Docker",
+          "docker"
+        ],
+        [
+          "pnpm",
+          "pnpm"
+        ]
+      ]
+    }
+  ],
+  "footer": "Thanks for visiting. More at unalivin.github.io.",
+  "footer_note": "Personal projects and opinions are my own."
+}
