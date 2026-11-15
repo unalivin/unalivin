@@ -100,11 +100,11 @@ def hero() -> str:
     body = [kit.card_open(W, h, label, defs=kit.dot_pattern("dots"))]
     # diagram panel
     px, py, pw, ph = 500, 32, 308, 214
-    body.append(
+    panel = [
         f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="12" fill="{kit.CARD}" stroke="{kit.HAIR}"/>'
         f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="12" fill="url(#dots)"/>'
-    )
-    body.append(kit.eyebrow(px + 16, py + 26, "What I build"))
+    ]
+    panel.append(kit.eyebrow(px + 16, py + 26, "What I build"))
     cx, cy = px + pw / 2, py + 118
     nodes = [
         ("NETWORK TOOLS", px + 18, py + 52, "l"),
@@ -114,56 +114,68 @@ def hero() -> str:
     ]
     for i, (name, nx, ny, side) in enumerate(nodes):
         ex = nx + 110 if side == "l" else nx
-        body.append(
+        panel.append(
             f'<path d="M{ex:g} {ny + 14:g}L{cx:g} {cy:g}" stroke="{kit.HAIR_STRONG}" stroke-width="1.2"/>'
             f'<circle r="2.6" fill="{CREAM}"><animateMotion dur="4s" begin="{i}s" repeatCount="indefinite" path="M{ex:g} {ny + 14:g}L{cx:g} {cy:g}"/>'
             f'<animate attributeName="opacity" values="0;1;1;0" dur="4s" begin="{i}s" repeatCount="indefinite"/></circle>'
         )
     for name, nx, ny, _ in nodes:
-        body.append(
+        panel.append(
             f'<rect x="{nx:g}" y="{ny:g}" width="110" height="28" rx="8" fill="{kit.BG}" stroke="{kit.HAIR_STRONG}"/>'
             + kit.text(nx + 55, ny + 18, name, 10, kit.META, "m", "middle", ' letter-spacing="1"')
         )
-    body.append(
+    panel.append(
         f'<circle cx="{cx:g}" cy="{cy:g}" r="36" fill="{kit.BG}" stroke="{kit.HAIR_STRONG}"/>'
         + bot(cx - 28, cy - 30, 56)
     )
+    body.append(kit.group(0.3, "".join(panel), "12 0"))
     # left column
-    body.append(kit.eyebrow(32, 46, "Hi, I am"))
-    body.append(kit.eyebrow(466, 46, p["location"], kit.META, "end"))
     body.append(
-        f'<path d="M110 42H{450}" stroke="{kit.HAIR_STRONG}" stroke-width="1"/>'
+        kit.group(
+            0.0,
+            kit.eyebrow(32, 46, "Hi, I am")
+            + kit.eyebrow(466, 46, p["location"], kit.META, "end")
+            + f'<path d="M110 42H450" stroke="{kit.HAIR_STRONG}" stroke-width="1"/>',
+        )
     )
-    body.append(kit.text(30, 108, p["name"], 64, kit.INK, "t"))
-    body.append(kit.text(32, 140, p["role"], 17, kit.INK, "s"))
+    body.append(kit.group(0.1, kit.text(30, 108, p["name"], 64, kit.INK, "t")))
+    body.append(kit.group(0.2, kit.text(32, 140, p["role"], 17, kit.INK, "s")))
     body.append(
-        f'<rect x="32" y="152" width="3" height="18" rx="1.5" fill="{SLATE}"/>'
-        + kit.text(44, 166, p["tagline"], 14.5, kit.INK, "s")
+        kit.group(
+            0.3,
+            f'<rect x="32" y="152" width="3" height="18" rx="1.5" fill="{SLATE}"/>'
+            + kit.rotating(p["taglines"], 44, 166, "s", 14.5, kit.INK, slot=3.0),
+        )
     )
     pill = f"{p['availability']}"
     pw_ = kit.text_width(pill, 12.5) + 44
     body.append(
-        f'<rect x="32" y="180" width="{pw_:.0f}" height="26" rx="13" fill="{kit.CARD}" stroke="{kit.HAIR_STRONG}"/>'
-        + kit.live_dot(48, 193, kit.GREEN, 4)
-        + kit.text(60, 197, pill, 12.5, kit.INK, "b")
+        kit.group(
+            0.4,
+            f'<rect x="32" y="180" width="{pw_:.0f}" height="26" rx="13" fill="{kit.CARD}" stroke="{kit.HAIR_STRONG}"/>'
+            + kit.live_dot(48, 193, kit.GREEN, 4)
+            + kit.text(60, 197, pill, 12.5, kit.INK, "b"),
+        )
     )
     y = 226
+    lines = []
     for line in kit.wrap_text(p["intro"], 440, 13.5):
-        body.append(kit.text(32, y, line, 13.5, kit.BODY, "b"))
+        lines.append(kit.text(32, y, line, 13.5, kit.BODY, "b"))
         y += 20
+    body.append(kit.group(0.5, "".join(lines)))
     # proof tiles
     tiles = p["proof"]
     tw = (W - 64 - 12 * (len(tiles) - 1)) / len(tiles)
     for i, t in enumerate(tiles):
         body.append(
-            kit.tile(32 + i * (tw + 12), 312, tw, 64, t["value"], t["label"], size=21, color=CREAM if i == 0 else kit.INK)
+            kit.tile(32 + i * (tw + 12), 312, tw, 64, t["value"], t["label"], at=0.6 + i * 0.08, size=21, color=CREAM if i == 0 else kit.INK)
         )
     body.append(kit.SVG_CLOSE)
     return "".join(body)
 
 
 # ---------------------------------------------------------------- connect buttons
-def button(label: str, slug: str, primary: bool = False) -> str:
+def button(label: str, slug: str, primary: bool = False, index: int = 0) -> str:
     w, h = 128, 40
     stroke = ORANGE if primary else kit.HAIR_STRONG
     color = ORANGE if primary else kit.INK
@@ -174,6 +186,9 @@ def button(label: str, slug: str, primary: bool = False) -> str:
         kit.svg_open(w, h, label)
         + kit.style()
         + f'<rect x="0.75" y="0.75" width="{w - 1.5}" height="{h - 1.5}" rx="9.25" fill="{kit.CARD}" stroke="{stroke}"/>'
+        + f'<rect x="0.75" y="0.75" width="{w - 1.5}" height="{h - 1.5}" rx="9.25" fill="rgba(106,90,205,0.14)" stroke="{ORCHID}" stroke-width="1.5" opacity="0">'
+        + kit.loop("opacity", "0;1;1;0;0", "0;0.0417;0.1917;0.2417;1", 6, 3 + index)
+        + "</rect>"
         + icon(slug, x0, 12, 16, color)
         + kit.text(x0 + 24, 24.5, label.upper(), 11, color, "m")
         + kit.SVG_CLOSE
@@ -217,20 +232,25 @@ def experience() -> str:
     for x, e in zip(xs, items):
         current = e.get("current")
         color = kit.GREEN if current else ORCHID
+        pulse = kit.live_dot(x, ty, color, 3) if current else ""
         body.append(
-            kit.text(x, ty - 14, e["when"].upper(), kit.MICRO, color, "m", "middle")
-            + f'<circle cx="{x:g}" cy="{ty}" r="6" fill="{kit.BG}" stroke="{color}" stroke-width="2"/>'
-            + f'<circle cx="{x:g}" cy="{ty}" r="2.4" fill="{color}"/>'
-            + kit.text(x, ty + 30, e["title"], 16, kit.INK, "s", "middle")
-            + kit.text(x, ty + 50, e["org"], 13.5, kit.BODY, "b", "middle")
-            + kit.text(x, ty + 70, e["where"].upper(), kit.MICRO, kit.META, "m", "middle")
+            kit.group(
+                0.2,
+                kit.text(x, ty - 14, e["when"].upper(), kit.MICRO, color, "m", "middle")
+                + f'<circle cx="{x:g}" cy="{ty}" r="6" fill="{kit.BG}" stroke="{color}" stroke-width="2"/>'
+                + f'<circle cx="{x:g}" cy="{ty}" r="2.4" fill="{color}"/>'
+                + pulse
+                + kit.text(x, ty + 30, e["title"], 16, kit.INK, "s", "middle")
+                + kit.text(x, ty + 50, e["org"], 13.5, kit.BODY, "b", "middle")
+                + kit.text(x, ty + 70, e["where"].upper(), kit.MICRO, kit.META, "m", "middle"),
+            )
         )
         tags = e.get("tags", [])
         widths = [kit.chip_width(t) for t in tags]
         cx0 = x - (sum(widths) + 8 * (len(tags) - 1)) / 2
         for t, wd in zip(tags, widths):
             svg, _ = kit.chip(cx0, ty + 92, t, ORCHID)
-            body.append(svg)
+            body.append(kit.group(0.5, svg))
             cx0 += wd + 8
     body.append(kit.SVG_CLOSE)
     return "".join(body)
@@ -262,25 +282,36 @@ def stack() -> str:
     body = [kit.card_open(W, h, label)]
     body.append(kit.eyebrow(pad, 38, f"{total} tools in {len(lanes)} lanes"))
     y = 56
+    count = len(rows)
     for idx, ((lane, placed, lines), lh) in enumerate(zip(rows, heights)):
-        body.append(
-            f'<rect x="{pad}" y="{y}" width="{W - pad * 2}" height="{lh}" rx="12" fill="{kit.HAIR_FILL}" stroke="{kit.HAIR_STRONG}"/>'
-            + f'<circle cx="{pad + 22}" cy="{y + lh / 2:g}" r="10" fill="{kit.BG}" stroke="{ORCHID}"/>'
-            + kit.text(pad + 22, y + lh / 2 + 3.6, str(idx + 1), 10.5, ORCHID, "m", "middle")
-        )
+        parts = [
+            f'<rect x="{pad}" y="{y}" width="{W - pad * 2}" height="{lh}" rx="12" fill="{kit.HAIR_FILL}" stroke="{kit.HAIR_STRONG}"/>',
+            f'<circle cx="{pad + 22}" cy="{y + lh / 2:g}" r="10" fill="{kit.BG}" stroke="{ORCHID}"/>',
+            kit.text(pad + 22, y + lh / 2 + 3.6, str(idx + 1), 10.5, ORCHID, "m", "middle"),
+        ]
         for li, part in enumerate(kit.wrap_text(lane["name"].upper(), label_w - 52, kit.MICRO, True, kit.TRACK)):
-            body.append(kit.text(pad + 42, y + lh / 2 - 4 + li * 14, part, kit.MICRO, kit.META, "m"))
+            parts.append(kit.text(pad + 42, y + lh / 2 - 4 + li * 14, part, kit.MICRO, kit.META, "m"))
         for name, slug, cx, cy, wd in placed:
             x0 = pad + label_w + 24 + cx
             y0 = y + 12 + cy
-            body.append(
+            parts.append(
                 f'<rect x="{x0:g}" y="{y0:g}" width="{wd:.0f}" height="{chip_h}" rx="9" fill="{kit.CARD}" stroke="{kit.HAIR_STRONG}"/>'
             )
             tx = x0 + 10
             if icon_path(slug):
-                body.append(icon(slug, x0 + 10, y0 + 7, 16, ORCHID))
+                parts.append(icon(slug, x0 + 10, y0 + 7, 16, ORCHID))
                 tx = x0 + 32
-            body.append(kit.text(tx, y0 + 19.5, name, 12.5, kit.INK, "s"))
+            parts.append(kit.text(tx, y0 + 19.5, name, 12.5, kit.INK, "s"))
+        # the highlight: this lane lights up for its slot of the 12 s loop
+        a0, a1 = idx / count, (idx + 1) / count
+        times = sorted({0.0, round(a0, 4), round(a0 + 0.02, 4), round(a1 - 0.02, 4), round(a1, 4), 1.0})
+        vals = ["1" if a0 + 0.02 - 1e-6 <= t <= a1 - 0.02 + 1e-6 else "0" for t in times]
+        parts.append(
+            f'<rect x="{pad}" y="{y}" width="{W - pad * 2}" height="{lh}" rx="12" fill="rgba(106,90,205,0.12)" stroke="{ORCHID}" stroke-width="1.5" opacity="0">'
+            + kit.loop("opacity", ";".join(vals), ";".join(f"{t:g}" for t in times), 12)
+            + "</rect>"
+        )
+        body.append(kit.group(0.15 + idx * 0.1, "".join(parts)))
         y += lh + 10
     body.append(kit.SVG_CLOSE)
     return "".join(body)
@@ -291,10 +322,13 @@ def footer() -> str:
     h = 112
     return (
         kit.card_open(W, h, PROFILE["footer"])
-        + kit.eyebrow(32, 38, "Thanks for visiting")
-        + kit.text(32, 72, PROFILE["footer"], 15, kit.INK, "s")
-        + kit.text(32, 94, PROFILE["footer_note"], 12.5, kit.META, "b")
-        + bot(W - 88, 28, 56)
+        + kit.group(
+            0.1,
+            kit.eyebrow(32, 38, "Thanks for visiting")
+            + kit.text(32, 72, PROFILE["footer"], 15, kit.INK, "s")
+            + kit.text(32, 94, PROFILE["footer_note"], 12.5, kit.META, "b"),
+        )
+        + kit.group(0.3, bot(W - 88, 28, 56), "0 0")
         + kit.SVG_CLOSE
     )
 
@@ -414,8 +448,8 @@ def main() -> None:
     DATA_FILE.write_text(json.dumps(jsonable(data), indent=1) + "\n", encoding="utf-8")
 
     write("hero.svg", hero())
-    for b in PROFILE["connect"]:
-        write(f"connect-{b['key']}.svg", button(b["label"], b["icon"], b.get("primary", False)))
+    for i, b in enumerate(PROFILE["connect"]):
+        write(f"connect-{b['key']}.svg", button(b["label"], b["icon"], b.get("primary", False), i))
     for key, (num, kicker, title) in PROFILE["headers"].items():
         write(f"header-{key}-dark.svg", header(num, kicker, title, True))
         write(f"header-{key}-light.svg", header(num, kicker, title, False))

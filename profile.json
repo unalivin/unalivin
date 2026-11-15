@@ -233,5 +233,11 @@
     }
   ],
   "footer": "Thanks for visiting. More at unalivin.github.io.",
-  "footer_note": "Personal projects and opinions are my own."
+  "footer_note": "Personal projects and opinions are my own.",
+  "taglines": [
+    "Open-source network tools.",
+    "Software for networks and security.",
+    "Websites and the systems behind them.",
+    "Rust, Go, Lua and C++."
+  ]
 }
