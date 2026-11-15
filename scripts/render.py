@@ -76,10 +76,18 @@ BOT = (
     '<rect x="9" y="24" width="82" height="64" rx="26" fill="#a678b9"/>'
     '<path d="M20 40C22 31 30 28 40 28" stroke="#fff" stroke-opacity="0.35" stroke-width="3" stroke-linecap="round" fill="none"/>'
     '<rect x="18" y="33" width="64" height="46" rx="19" fill="#101014" stroke="#2d2b55" stroke-width="2"/>'
-    '<g><rect x="33" y="46" width="11" height="18" rx="5.5" fill="#f0d9b5"/>'
-    '<rect x="56" y="46" width="11" height="18" rx="5.5" fill="#f0d9b5"/>'
-    '<circle cx="36.5" cy="50.5" r="1.8" fill="#fff"/><circle cx="59.5" cy="50.5" r="1.8" fill="#fff"/>'
-    '<animateTransform attributeName="transform" type="scale" values="1 1;1 1;1 0.1;1 1;1 1" keyTimes="0;0.9;0.93;0.96;1" dur="5s" repeatCount="indefinite" additive="sum"/></g>'
+    '<g>'
+    '<rect x="33" y="46" width="11" height="18" rx="5.5" fill="#f0d9b5">'
+    '<animate attributeName="height" values="18;18;2;18;18" keyTimes="0;0.9;0.93;0.96;1" dur="5s" repeatCount="indefinite"/>'
+    '<animate attributeName="y" values="46;46;54;46;46" keyTimes="0;0.9;0.93;0.96;1" dur="5s" repeatCount="indefinite"/></rect>'
+    '<rect x="56" y="46" width="11" height="18" rx="5.5" fill="#f0d9b5">'
+    '<animate attributeName="height" values="18;18;2;18;18" keyTimes="0;0.9;0.93;0.96;1" dur="5s" repeatCount="indefinite"/>'
+    '<animate attributeName="y" values="46;46;54;46;46" keyTimes="0;0.9;0.93;0.96;1" dur="5s" repeatCount="indefinite"/></rect>'
+    '<circle cx="36.5" cy="50.5" r="1.8" fill="#fff">'
+    '<animate attributeName="opacity" values="1;1;0;1;1" keyTimes="0;0.9;0.93;0.96;1" dur="5s" repeatCount="indefinite"/></circle>'
+    '<circle cx="59.5" cy="50.5" r="1.8" fill="#fff">'
+    '<animate attributeName="opacity" values="1;1;0;1;1" keyTimes="0;0.9;0.93;0.96;1" dur="5s" repeatCount="indefinite"/></circle>'
+    '</g>'
     '<path d="M43 70Q50 75 57 70" stroke="#f0d9b5" stroke-width="2.8" stroke-linecap="round" fill="none"/>'
     '<circle cx="27" cy="68" r="3.2" fill="#f4a62a" opacity="0.55"/><circle cx="73" cy="68" r="3.2" fill="#f4a62a" opacity="0.55"/>'
 )
@@ -276,11 +284,11 @@ def stack() -> str:
     heights = [r[2] * chip_h + (r[2] - 1) * gap + 24 for r in rows]
     h = 56 + sum(heights) + 10 * (len(rows) - 1) + 24
     total = sum(len(lane["items"]) for lane in lanes)
-    label = f"Tech stack, {total} tools in {len(lanes)} lanes. " + " ".join(
+    label = f"Focus areas, {len(lanes)} groups. " + " ".join(
         f"{lane['name']}: " + ", ".join(n for n, _ in lane["items"]) + "." for lane in lanes
     )
     body = [kit.card_open(W, h, label)]
-    body.append(kit.eyebrow(pad, 38, f"{total} tools in {len(lanes)} lanes"))
+    body.append(kit.eyebrow(pad, 38, f"{len(lanes)} focus areas"))
     y = 56
     count = len(rows)
     for idx, ((lane, placed, lines), lh) in enumerate(zip(rows, heights)):

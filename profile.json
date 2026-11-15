@@ -19,8 +19,8 @@
       "label": "Since May"
     },
     {
-      "value": "4",
-      "label": "Core languages"
+      "value": "7",
+      "label": "Focus areas"
     },
     {
       "value": "Open",
@@ -74,8 +74,8 @@
     ],
     "stack": [
       "02",
-      "what I work with",
-      "Tech Stack and Tools"
+      "what I work on",
+      "Focus Areas"
     ],
     "stats": [
       "03",
@@ -99,135 +99,129 @@
   ],
   "stack": [
     {
-      "name": "Networking and security",
+      "name": "Network monitoring",
       "items": [
         [
-          "Linux",
-          "linux"
-        ],
-        [
-          "Bash",
-          "gnubash"
-        ],
-        [
-          "Lua",
+          "Certificate and DNS monitoring",
           null
         ],
         [
-          "WebSockets",
+          "Port and service tracking",
           null
         ],
         [
-          "NSE",
+          "IP address management",
           null
         ],
         [
-          "Network Security",
+          "Routing and topology",
           null
         ]
       ]
     },
     {
-      "name": "Languages",
+      "name": "Security baselines",
       "items": [
         [
-          "Rust",
+          "Hardening baselines",
           null
         ],
         [
-          "Go",
-          "go"
+          "Configuration audits",
+          null
         ],
         [
-          "C++",
-          "cplusplus"
+          "Cloud and Kubernetes posture",
+          null
         ],
         [
-          "Python",
-          "python"
-        ],
-        [
-          "TypeScript",
-          "typescript"
-        ],
-        [
-          "JavaScript",
-          "javascript"
-        ]
-      ]
-    },
-    {
-      "name": "Backend",
-      "items": [
-        [
-          "Node.js",
-          "nodedotjs"
-        ],
-        [
-          "FastAPI",
-          "fastapi"
-        ],
-        [
-          "PostgreSQL",
-          "postgresql"
-        ],
-        [
-          "MongoDB",
-          "mongodb"
-        ],
-        [
-          "Redis",
-          "redis"
-        ],
-        [
-          "GraphQL",
+          "Vulnerability tracking",
           null
         ]
       ]
     },
     {
-      "name": "Web",
+      "name": "Supply chain",
       "items": [
         [
-          "React",
-          "react"
+          "Secrets scanning",
+          null
         ],
         [
-          "Next.js",
-          "nextdotjs"
+          "Software bills of materials",
+          null
         ],
         [
-          "Vite",
-          "vite"
+          "CI/CD pipeline security",
+          null
         ],
         [
-          "Tailwind CSS",
-          "tailwindcss"
-        ],
-        [
-          "Astro",
-          "astro"
+          "Infrastructure-as-code review",
+          null
         ]
       ]
     },
     {
-      "name": "Tools",
+      "name": "Detection and response",
       "items": [
         [
-          "Git",
-          "git"
+          "Detection rules",
+          null
         ],
         [
-          "GitHub Actions",
-          "githubactions"
+          "Log analysis",
+          null
         ],
         [
-          "Docker",
-          "docker"
+          "Incident response",
+          null
         ],
         [
-          "pnpm",
-          "pnpm"
+          "Threat intelligence",
+          null
+        ]
+      ]
+    },
+    {
+      "name": "Analysis",
+      "items": [
+        [
+          "Phishing analysis",
+          null
+        ],
+        [
+          "Digital forensics",
+          null
+        ]
+      ]
+    },
+    {
+      "name": "Automation",
+      "items": [
+        [
+          "Network automation",
+          null
+        ],
+        [
+          "Fleet operations",
+          null
+        ]
+      ]
+    },
+    {
+      "name": "Web and backend",
+      "items": [
+        [
+          "Websites",
+          null
+        ],
+        [
+          "Backend services",
+          null
+        ],
+        [
+          "Open source",
+          null
         ]
       ]
     }
@@ -237,7 +231,6 @@
   "taglines": [
     "Open-source network tools.",
     "Software for networks and security.",
-    "Websites and the systems behind them.",
-    "Rust, Go, Lua and C++."
+    "Websites and the systems behind them."
   ]
 }

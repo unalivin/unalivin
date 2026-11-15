@@ -15,9 +15,9 @@
 
 <picture><img src="assets/svg/experience.svg" width="100%" alt="Career: May 2026 to now, Lead Developer, Sonix-Devs, Greece" /></picture>
 
-<picture><source media="(prefers-color-scheme: light)" srcset="assets/svg/header-stack-light.svg" /><source media="(prefers-color-scheme: dark)" srcset="assets/svg/header-stack-dark.svg" /><img src="assets/svg/header-stack-dark.svg" width="100%" alt="Tech Stack and Tools" /></picture>
+<picture><source media="(prefers-color-scheme: light)" srcset="assets/svg/header-stack-light.svg" /><source media="(prefers-color-scheme: dark)" srcset="assets/svg/header-stack-dark.svg" /><img src="assets/svg/header-stack-dark.svg" width="100%" alt="Focus Areas" /></picture>
 
-<picture><img src="assets/svg/stack.svg" width="100%" alt="Tech stack, 27 tools in 5 lanes. Networking and security: Linux, Bash, Lua, WebSockets, NSE, Network Security. Languages: Rust, Go, C++, Python, TypeScript, JavaScript. Backend: Node.js, FastAPI, PostgreSQL, MongoDB, Redis, GraphQL. Web: React, Next.js, Vite, Tailwind CSS, Astro. Tools: Git, GitHub Actions, Docker, pnpm." /></picture>
+<picture><img src="assets/svg/stack.svg" width="100%" alt="Focus areas, 7 groups. Network monitoring: Certificate and DNS monitoring, Port and service tracking, IP address management, Routing and topology. Security baselines: Hardening baselines, Configuration audits, Cloud and Kubernetes posture, Vulnerability tracking. Supply chain: Secrets scanning, Software bills of materials, CI/CD pipeline security, Infrastructure-as-code review. Detection and response: Detection rules, Log analysis, Incident response, Threat intelligence. Analysis: Phishing analysis, Digital forensics. Automation: Network automation, Fleet operations. Web and backend: Websites, Backend services, Open source." /></picture>
 
 <picture><source media="(prefers-color-scheme: light)" srcset="assets/svg/header-stats-light.svg" /><source media="(prefers-color-scheme: dark)" srcset="assets/svg/header-stats-dark.svg" /><img src="assets/svg/header-stats-dark.svg" width="100%" alt="Coding Stats" /></picture>
 
