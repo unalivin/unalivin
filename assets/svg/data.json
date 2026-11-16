@@ -1,7 +1,7 @@
 {
  "github": {
-  "contributions": 706,
-  "commits": 64,
+  "contributions": 711,
+  "commits": 69,
   "prs": 9,
   "stars": 1,
   "repo_stars": {
@@ -13,9 +13,9 @@
    "unalivin": 0
   },
   "followers": 2,
-  "streak": 23,
-  "longest": 23,
-  "active_days": 44,
+  "streak": 24,
+  "longest": 24,
+  "active_days": 45,
   "calendar": [
    [
     0,
@@ -486,7 +486,8 @@
     12
    ],
    [
-    8
+    8,
+    5
    ]
   ],
   "languages": [
@@ -506,14 +507,14 @@
     "#f1e05a"
    ],
    [
+    "Python",
+    3.7,
+    "#3572A5"
+   ],
+   [
     "CSS",
     3.7,
     "#663399"
-   ],
-   [
-    "Python",
-    3.6,
-    "#3572A5"
    ],
    [
     "HTML",
@@ -522,5 +523,5 @@
    ]
   ]
  },
- "updated": "2026-11-15T23:15:40+00:00"
+ "updated": "2026-11-16T02:22:28+00:00"
 }
