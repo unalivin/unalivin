@@ -5,7 +5,7 @@
   "location": "Greece",
   "tagline": "Open-source network tools.",
   "availability": "Available for new projects.",
-  "intro": "Network and software engineer focused on defensive security. I'm lead developer at Sonix-Devs, and I build open-source network tools, websites and the backend systems behind them.",
+  "intro": "Network and software engineer focused on defensive security. I build local-first monitoring and security tools with a desktop app, a terminal interface and a CLI, along with websites and backends. Lead developer at Sonix-Devs.",
   "github_user": "unalivin",
   "leetcode_user": "unalivinx",
   "portfolio_url": "https://unalivin.github.io/",
@@ -104,7 +104,8 @@
   ],
   "stack": [
     {
-      "name": "Systems",
+      "name": "Systems & Languages",
+      "icon": "terminal",
       "items": [
         [
           "Linux",
@@ -119,13 +120,60 @@
           "go"
         ],
         [
+          "Rust",
+          "rust"
+        ],
+        [
+          "C++",
+          "cplusplus"
+        ],
+        [
           "Python",
           "python"
+        ],
+        [
+          "Lua",
+          "lua"
         ]
       ]
     },
     {
-      "name": "Backend",
+      "name": "Frontend",
+      "icon": "browser",
+      "items": [
+        [
+          "TypeScript",
+          "typescript"
+        ],
+        [
+          "JavaScript",
+          "javascript"
+        ],
+        [
+          "React",
+          "react"
+        ],
+        [
+          "Next.js",
+          "nextdotjs"
+        ],
+        [
+          "Astro",
+          "astro"
+        ],
+        [
+          "Vite",
+          "vite"
+        ],
+        [
+          "Tailwind CSS",
+          "tailwindcss"
+        ]
+      ]
+    },
+    {
+      "name": "Backend & Databases",
+      "icon": "database",
       "items": [
         [
           "Node.js",
@@ -150,44 +198,68 @@
       ]
     },
     {
-      "name": "Web",
+      "name": "DevOps & IaC",
+      "icon": "iac-cicd",
       "items": [
         [
-          "TypeScript",
-          "typescript"
+          "Docker",
+          "docker"
         ],
         [
-          "React",
-          "react"
+          "Terraform",
+          "terraform"
         ],
         [
-          "Next.js",
-          "nextdotjs"
+          "Ansible",
+          "ansible"
         ],
         [
-          "Vite",
-          "vite"
-        ],
-        [
-          "Tailwind CSS",
-          "tailwindcss"
+          "GitHub Actions",
+          "githubactions"
         ]
       ]
     },
     {
-      "name": "Tooling",
+      "name": "AI Developer Tools",
+      "icon": "sparkles",
+      "items": [
+        [
+          "Claude Code",
+          "claude"
+        ],
+        [
+          "MCP",
+          "modelcontextprotocol"
+        ],
+        [
+          "Cursor",
+          "cursor"
+        ],
+        [
+          "GitHub Copilot",
+          "githubcopilot"
+        ]
+      ]
+    },
+    {
+      "name": "Tools & Platforms",
+      "icon": "wrench",
       "items": [
         [
           "Git",
           "git"
         ],
         [
-          "GitHub Actions",
-          "githubactions"
+          "GitHub",
+          "github"
         ],
         [
-          "Docker",
-          "docker"
+          "Vercel",
+          "vercel"
+        ],
+        [
+          "Cloudflare",
+          "cloudflare"
         ],
         [
           "pnpm",
@@ -200,7 +272,7 @@
   "footer_note": "Personal projects and opinions are my own.",
   "taglines": [
     "Open-source network tools.",
-    "Software for networks and security.",
+    "Local-first security tools for defenders.",
     "Websites and the systems behind them."
   ],
   "areas": [
@@ -291,7 +363,8 @@
   ],
   "tools": [
     {
-      "name": "Systems",
+      "name": "Systems & Languages",
+      "icon": "terminal",
       "items": [
         [
           "Linux",
@@ -306,13 +379,60 @@
           "go"
         ],
         [
+          "Rust",
+          "rust"
+        ],
+        [
+          "C++",
+          "cplusplus"
+        ],
+        [
           "Python",
           "python"
+        ],
+        [
+          "Lua",
+          "lua"
         ]
       ]
     },
     {
-      "name": "Backend",
+      "name": "Frontend",
+      "icon": "browser",
+      "items": [
+        [
+          "TypeScript",
+          "typescript"
+        ],
+        [
+          "JavaScript",
+          "javascript"
+        ],
+        [
+          "React",
+          "react"
+        ],
+        [
+          "Next.js",
+          "nextdotjs"
+        ],
+        [
+          "Astro",
+          "astro"
+        ],
+        [
+          "Vite",
+          "vite"
+        ],
+        [
+          "Tailwind CSS",
+          "tailwindcss"
+        ]
+      ]
+    },
+    {
+      "name": "Backend & Databases",
+      "icon": "database",
       "items": [
         [
           "Node.js",
@@ -337,44 +457,68 @@
       ]
     },
     {
-      "name": "Web",
+      "name": "DevOps & IaC",
+      "icon": "iac-cicd",
       "items": [
         [
-          "TypeScript",
-          "typescript"
+          "Docker",
+          "docker"
         ],
         [
-          "React",
-          "react"
+          "Terraform",
+          "terraform"
         ],
         [
-          "Next.js",
-          "nextdotjs"
+          "Ansible",
+          "ansible"
         ],
         [
-          "Vite",
-          "vite"
-        ],
-        [
-          "Tailwind CSS",
-          "tailwindcss"
+          "GitHub Actions",
+          "githubactions"
         ]
       ]
     },
     {
-      "name": "Tooling",
+      "name": "AI Developer Tools",
+      "icon": "sparkles",
+      "items": [
+        [
+          "Claude Code",
+          "claude"
+        ],
+        [
+          "MCP",
+          "modelcontextprotocol"
+        ],
+        [
+          "Cursor",
+          "cursor"
+        ],
+        [
+          "GitHub Copilot",
+          "githubcopilot"
+        ]
+      ]
+    },
+    {
+      "name": "Tools & Platforms",
+      "icon": "wrench",
       "items": [
         [
           "Git",
           "git"
         ],
         [
-          "GitHub Actions",
-          "githubactions"
+          "GitHub",
+          "github"
         ],
         [
-          "Docker",
-          "docker"
+          "Vercel",
+          "vercel"
+        ],
+        [
+          "Cloudflare",
+          "cloudflare"
         ],
         [
           "pnpm",

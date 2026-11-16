@@ -44,6 +44,8 @@ SLATE = kit.BLUE
 
 # Hand-drawn 24 x 24 marks for the services Simple Icons does not carry.
 EXTRA_ICONS = {
+    "rust": "M12 1.5l1.4 2.4 2.7-.6.8 2.6 2.7.8-.6 2.7L21 10.8l-2 1.9.6 2.8-2.7.8-.8 2.6-2.7-.6L12 21.7l-1.4-2.3-2.7.6-.8-2.6-2.7-.8.6-2.8-2-1.9 2-1.9-.6-2.7 2.7-.8.8-2.6 2.7.6ZM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z",
+    "lua": "M12.5 2.5a9.5 9.5 0 1 0 9 12.8A7.5 7.5 0 0 1 12.5 2.5ZM19 2.5a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2Z",
     "mail": "M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5Zm2.2.2L12 12.2l6.8-5.5v-.2H5.2Z",
     "globe": "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 2c.9 1 1.7 2.7 2.1 5H9.9C10.3 6.7 11.1 5 12 4Zm-3.6.7A11 11 0 0 0 7.8 9H4.3a8 8 0 0 1 4.1-4.3ZM4.1 11h3.6a20 20 0 0 0 0 2H4.1a8 8 0 0 1 0-2Zm.2 4h3.5c.2 1.7.6 3.2 1.2 4.3A8 8 0 0 1 4.3 15Zm5.6 0h4.2c-.4 2.3-1.2 4-2.1 5-.9-1-1.7-2.7-2.1-5Zm0-2a18 18 0 0 1 0-2h4.2a18 18 0 0 1 0 2Zm5.9 2h3.9a8 8 0 0 1-4.7 4.3c.6-1.1 1-2.6 1.2-4.3Zm.3-2a20 20 0 0 0 0-2h3.6a8 8 0 0 1 0 2Zm-.3-4c-.2-1.7-.6-3.2-1.2-4.3A8 8 0 0 1 19.7 9Z",
     "x": "M17.7 3h3.1l-6.8 7.7L22 21h-6.3l-4.9-6.4L5.2 21H2.1l7.3-8.3L2 3h6.4l4.4 5.9ZM16.6 19.1h1.7L7.4 4.8H5.6Z",
@@ -61,7 +63,8 @@ def icon(slug: str, x: float, y: float, size: float, fill: str) -> str:
     path = icon_path(slug)
     if not path:
         return ""
-    return f'<path transform="translate({x:g} {y:g}) scale({size / 24:.4f})" d="{path}" fill="{fill}"/>'
+    rule = ' fill-rule="evenodd"' if slug == "rust" else ""
+    return f'<path transform="translate({x:g} {y:g}) scale({size / 24:.4f})" d="{path}" fill="{fill}"{rule}/>'
 
 
 def write(name: str, svg: str) -> None:
@@ -342,7 +345,7 @@ def stack(mobile: bool = False) -> str:
     lanes = PROFILE["stack"]
     w = 400 if mobile else W
     pad = 24 if mobile else 32
-    label_w = 0 if mobile else 150
+    label_w = 0 if mobile else 200
     chip_h, gap = 30, 8
     area_w = w - pad * 2 - (24 if mobile else label_w + 24)
     rows = []
@@ -372,12 +375,14 @@ def stack(mobile: bool = False) -> str:
             f'<rect x="{pad}" y="{y}" width="{w - pad * 2}" height="{lh}" rx="12" fill="{kit.HAIR_FILL}" stroke="{kit.HAIR_STRONG}"/>',
         ]
         if mobile:
-            parts.append(kit.text(pad + 14, y + 20, lane["name"].upper(), kit.MICRO, kit.META, "m"))
+            parts.append(areas.stroke_icon(lane["icon"], pad + 14, y + 8, 18, ORCHID))
+            parts.append(kit.text(pad + 40, y + 22, lane["name"], 14.5, kit.INK, "s"))
             ox, oy = pad + 12, y + 12 + head
         else:
-            parts.append(f'<circle cx="{pad + 22}" cy="{y + lh / 2:g}" r="10" fill="{kit.BG}" stroke="{ORCHID}"/>')
-            parts.append(kit.text(pad + 22, y + lh / 2 + 3.6, str(idx + 1), 10.5, ORCHID, "m", "middle"))
-            parts.append(kit.text(pad + 42, y + lh / 2 + 4, lane["name"].upper(), kit.MICRO, kit.META, "m"))
+            parts.append(areas.stroke_icon(lane["icon"], pad + 18, y + lh / 2 - 11, 22, ORCHID))
+            for li, part in enumerate(kit.wrap_text(lane["name"], label_w - 64, 14.5)):
+                n_lines = len(kit.wrap_text(lane["name"], label_w - 64, 14.5))
+                parts.append(kit.text(pad + 50, y + lh / 2 + 5 - (n_lines - 1) * 9 + li * 18, part, 14.5, kit.INK, "s"))
             ox, oy = pad + label_w + 24, y + 12
         for name, slug, cx, cy, wd in placed:
             x0, y0 = ox + cx, oy + cy
@@ -554,8 +559,6 @@ def readme() -> str:
         f'<a href="https://github.com/{p["github_user"]}"><picture><img src="assets/svg/github.svg" width="100%" alt="{alt_of("github.svg")}" /></picture></a>\n',
         f'<a href="https://leetcode.com/u/{p["leetcode_user"]}/"><picture><img src="assets/svg/leetcode.svg" width="100%" alt="{alt_of("leetcode.svg")}" /></picture></a>\n',
         f'<a href="{p["portfolio_url"]}">{responsive("footer.svg")}</a>\n',
-        '<p align="center"><sub>Profile design adapted from '
-        '<a href="https://github.com/Sagargupta16">Sagargupta16</a> (MIT).</sub></p>\n',
     ]
     text = "\n".join(parts)
 
