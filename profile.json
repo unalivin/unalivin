@@ -5,7 +5,7 @@
   "location": "Greece",
   "tagline": "Open-source network tools.",
   "availability": "Available for new projects.",
-  "intro": "Network and software engineer working in cybersecurity. I'm lead developer at Sonix-Devs, a cybersecurity-focused programming platform, and I build open-source network tools, websites and the backend systems behind them.",
+  "intro": "Network and software engineer focused on defensive security. I'm lead developer at Sonix-Devs, and I build open-source network tools, websites and the backend systems behind them.",
   "github_user": "unalivin",
   "leetcode_user": "unalivinx",
   "portfolio_url": "https://unalivin.github.io/",
@@ -73,14 +73,19 @@
       "Experience"
     ],
     "stack": [
+      "03",
+      "what I use",
+      "Tools"
+    ],
+    "stats": [
+      "04",
+      "GitHub activity and LeetCode",
+      "Coding Stats"
+    ],
+    "areas": [
       "02",
       "what I work on",
       "Focus Areas"
-    ],
-    "stats": [
-      "03",
-      "GitHub activity and LeetCode",
-      "Coding Stats"
     ]
   },
   "experience_kicker": "Since May 2026",
@@ -99,129 +104,94 @@
   ],
   "stack": [
     {
-      "name": "Network monitoring",
+      "name": "Systems",
       "items": [
         [
-          "Certificate and DNS monitoring",
-          null
+          "Linux",
+          "linux"
         ],
         [
-          "Port and service tracking",
-          null
+          "Bash",
+          "gnubash"
         ],
         [
-          "IP address management",
-          null
+          "Go",
+          "go"
         ],
         [
-          "Routing and topology",
-          null
+          "Python",
+          "python"
         ]
       ]
     },
     {
-      "name": "Security baselines",
+      "name": "Backend",
       "items": [
         [
-          "Hardening baselines",
-          null
+          "Node.js",
+          "nodedotjs"
         ],
         [
-          "Configuration audits",
-          null
+          "FastAPI",
+          "fastapi"
         ],
         [
-          "Cloud and Kubernetes posture",
-          null
+          "PostgreSQL",
+          "postgresql"
         ],
         [
-          "Vulnerability tracking",
-          null
+          "MongoDB",
+          "mongodb"
+        ],
+        [
+          "Redis",
+          "redis"
         ]
       ]
     },
     {
-      "name": "Supply chain",
+      "name": "Web",
       "items": [
         [
-          "Secrets scanning",
-          null
+          "TypeScript",
+          "typescript"
         ],
         [
-          "Software bills of materials",
-          null
+          "React",
+          "react"
         ],
         [
-          "CI/CD pipeline security",
-          null
+          "Next.js",
+          "nextdotjs"
         ],
         [
-          "Infrastructure-as-code review",
-          null
+          "Vite",
+          "vite"
+        ],
+        [
+          "Tailwind CSS",
+          "tailwindcss"
         ]
       ]
     },
     {
-      "name": "Detection and response",
+      "name": "Tooling",
       "items": [
         [
-          "Detection rules",
-          null
+          "Git",
+          "git"
         ],
         [
-          "Log analysis",
-          null
+          "GitHub Actions",
+          "githubactions"
         ],
         [
-          "Incident response",
-          null
+          "Docker",
+          "docker"
         ],
         [
-          "Threat intelligence",
-          null
-        ]
-      ]
-    },
-    {
-      "name": "Analysis",
-      "items": [
-        [
-          "Phishing analysis",
-          null
-        ],
-        [
-          "Digital forensics",
-          null
-        ]
-      ]
-    },
-    {
-      "name": "Automation",
-      "items": [
-        [
-          "Network automation",
-          null
-        ],
-        [
-          "Fleet operations",
-          null
-        ]
-      ]
-    },
-    {
-      "name": "Web and backend",
-      "items": [
-        [
-          "Websites",
-          null
-        ],
-        [
-          "Backend services",
-          null
-        ],
-        [
-          "Open source",
-          null
+          "pnpm",
+          "pnpm"
         ]
       ]
     }
@@ -232,5 +202,186 @@
     "Open-source network tools.",
     "Software for networks and security.",
     "Websites and the systems behind them."
-  ]
+  ],
+  "areas": [
+    {
+      "id": 1,
+      "key": "forward-deployed",
+      "title": "Network monitoring",
+      "summary": "Know what is exposed and what is about to break.",
+      "list": [
+        "Certificate expiry and DNS change monitoring",
+        "Open port and service tracking",
+        "IP address and asset inventory",
+        "Routing and topology analysis"
+      ]
+    },
+    {
+      "id": 2,
+      "key": "landing-zones",
+      "title": "Security baselines and audits",
+      "summary": "Check systems against a known good state.",
+      "list": [
+        "Network device configuration audits",
+        "Hardening baselines and drift checks",
+        "Cloud and Kubernetes posture reviews",
+        "Findings tracked through to the fix"
+      ]
+    },
+    {
+      "id": 3,
+      "key": "iac-cicd",
+      "title": "Pipeline and supply chain security",
+      "summary": "Catch problems before they ship.",
+      "list": [
+        "CI/CD pipeline hardening",
+        "Secrets scanning in code and history",
+        "Software bills of materials",
+        "Infrastructure-as-code review"
+      ]
+    },
+    {
+      "id": 4,
+      "key": "cloud-networking",
+      "title": "Network automation",
+      "summary": "Routine changes made repeatable and safe.",
+      "list": [
+        "Device and fleet operations",
+        "Dry-run first, rollback ready",
+        "Change workflows with an audit trail",
+        "Command-line tools for operators"
+      ]
+    },
+    {
+      "id": 5,
+      "key": "mlops-genai",
+      "title": "Detection and incident response",
+      "summary": "Turn raw logs into something an analyst can act on.",
+      "list": [
+        "Detection rules and log analysis",
+        "Search and correlation across events",
+        "Incident timelines and workflows",
+        "Threat intelligence enrichment"
+      ]
+    },
+    {
+      "id": 6,
+      "key": "agent-tooling",
+      "title": "Analysis and forensics",
+      "summary": "Careful work on evidence and suspicious input.",
+      "list": [
+        "Phishing email analysis",
+        "Digital forensics and evidence handling",
+        "Vulnerability tracking and triage",
+        "Tools that support security analysts"
+      ]
+    },
+    {
+      "id": 7,
+      "key": "full-stack",
+      "title": "Websites and backend systems",
+      "summary": "The web side of the work.",
+      "list": [
+        "Websites and web apps",
+        "Backend services and databases",
+        "Desktop and terminal front ends",
+        "Open-source maintenance"
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "name": "Systems",
+      "items": [
+        [
+          "Linux",
+          "linux"
+        ],
+        [
+          "Bash",
+          "gnubash"
+        ],
+        [
+          "Go",
+          "go"
+        ],
+        [
+          "Python",
+          "python"
+        ]
+      ]
+    },
+    {
+      "name": "Backend",
+      "items": [
+        [
+          "Node.js",
+          "nodedotjs"
+        ],
+        [
+          "FastAPI",
+          "fastapi"
+        ],
+        [
+          "PostgreSQL",
+          "postgresql"
+        ],
+        [
+          "MongoDB",
+          "mongodb"
+        ],
+        [
+          "Redis",
+          "redis"
+        ]
+      ]
+    },
+    {
+      "name": "Web",
+      "items": [
+        [
+          "TypeScript",
+          "typescript"
+        ],
+        [
+          "React",
+          "react"
+        ],
+        [
+          "Next.js",
+          "nextdotjs"
+        ],
+        [
+          "Vite",
+          "vite"
+        ],
+        [
+          "Tailwind CSS",
+          "tailwindcss"
+        ]
+      ]
+    },
+    {
+      "name": "Tooling",
+      "items": [
+        [
+          "Git",
+          "git"
+        ],
+        [
+          "GitHub Actions",
+          "githubactions"
+        ],
+        [
+          "Docker",
+          "docker"
+        ],
+        [
+          "pnpm",
+          "pnpm"
+        ]
+      ]
+    }
+  ],
+  "site_data_url": "https://raw.githubusercontent.com/unalivin/unalivin.github.io/main/data/services.json"
 }
