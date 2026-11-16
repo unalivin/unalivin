@@ -15,6 +15,8 @@ from __future__ import annotations
 
 import argparse
 import datetime
+import hashlib
+import re
 import json
 import os
 import sys
@@ -555,7 +557,14 @@ def readme() -> str:
         '<p align="center"><sub>Profile design adapted from '
         '<a href="https://github.com/Sagargupta16">Sagargupta16</a> (MIT).</sub></p>\n',
     ]
-    return "\n".join(parts)
+    text = "\n".join(parts)
+
+    def versioned(m: "re.Match[str]") -> str:
+        f = OUT / m.group(1)
+        tag = hashlib.sha1(f.read_bytes()).hexdigest()[:8] if f.exists() else "0"
+        return f"assets/svg/{m.group(1)}?v={tag}"
+
+    return re.sub(r"assets/svg/([\w.-]+\.svg)", versioned, text)
 
 
 def main() -> None:
