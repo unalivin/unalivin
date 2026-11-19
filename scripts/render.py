@@ -74,20 +74,20 @@ def write(name: str, svg: str) -> None:
 
 # ---------------------------------------------------------------- the bot
 BOT = (
-    '<path d="M50 26V15" stroke="#a678b9" stroke-width="4.5" stroke-linecap="round"/>'
-    '<circle cx="50" cy="10" r="9" fill="#f4a62a" opacity="0.25"><animate attributeName="r" values="9;13;9" dur="3s" repeatCount="indefinite"/>'
+    '<path d="M50 26V15" stroke="#ff7a45" stroke-width="4.5" stroke-linecap="round"/>'
+    '<circle cx="50" cy="10" r="9" fill="#f29a38" opacity="0.25"><animate attributeName="r" values="9;13;9" dur="3s" repeatCount="indefinite"/>'
     '<animate attributeName="opacity" values="0.3;0.05;0.3" dur="3s" repeatCount="indefinite"/></circle>'
-    '<circle cx="50" cy="10" r="6" fill="#f4a62a"/>'
-    '<rect x="2" y="45" width="11" height="21" rx="5.5" fill="#6a5acd"/>'
-    '<rect x="87" y="45" width="11" height="21" rx="5.5" fill="#6a5acd"/>'
-    '<rect x="9" y="24" width="82" height="64" rx="26" fill="#a678b9"/>'
+    '<circle cx="50" cy="10" r="6" fill="#f29a38"/>'
+    '<rect x="2" y="45" width="11" height="21" rx="5.5" fill="#e8531f"/>'
+    '<rect x="87" y="45" width="11" height="21" rx="5.5" fill="#e8531f"/>'
+    '<rect x="9" y="24" width="82" height="64" rx="26" fill="#ff7a45"/>'
     '<path d="M20 40C22 31 30 28 40 28" stroke="#fff" stroke-opacity="0.35" stroke-width="3" stroke-linecap="round" fill="none"/>'
-    '<rect x="18" y="33" width="64" height="46" rx="19" fill="#101014" stroke="#2d2b55" stroke-width="2"/>'
+    '<rect x="18" y="33" width="64" height="46" rx="19" fill="#050505" stroke="#4a1d0c" stroke-width="2"/>'
     '<g>'
-    '<rect x="33" y="46" width="11" height="18" rx="5.5" fill="#f0d9b5">'
+    '<rect x="33" y="46" width="11" height="18" rx="5.5" fill="#f29a38">'
     '<animate attributeName="height" values="18;18;2;18;18" keyTimes="0;0.9;0.93;0.96;1" dur="5s" repeatCount="indefinite"/>'
     '<animate attributeName="y" values="46;46;54;46;46" keyTimes="0;0.9;0.93;0.96;1" dur="5s" repeatCount="indefinite"/></rect>'
-    '<rect x="56" y="46" width="11" height="18" rx="5.5" fill="#f0d9b5">'
+    '<rect x="56" y="46" width="11" height="18" rx="5.5" fill="#f29a38">'
     '<animate attributeName="height" values="18;18;2;18;18" keyTimes="0;0.9;0.93;0.96;1" dur="5s" repeatCount="indefinite"/>'
     '<animate attributeName="y" values="46;46;54;46;46" keyTimes="0;0.9;0.93;0.96;1" dur="5s" repeatCount="indefinite"/></rect>'
     '<circle cx="36.5" cy="50.5" r="1.8" fill="#fff">'
@@ -95,8 +95,8 @@ BOT = (
     '<circle cx="59.5" cy="50.5" r="1.8" fill="#fff">'
     '<animate attributeName="opacity" values="1;1;0;1;1" keyTimes="0;0.9;0.93;0.96;1" dur="5s" repeatCount="indefinite"/></circle>'
     '</g>'
-    '<path d="M43 70Q50 75 57 70" stroke="#f0d9b5" stroke-width="2.8" stroke-linecap="round" fill="none"/>'
-    '<circle cx="27" cy="68" r="3.2" fill="#f4a62a" opacity="0.55"/><circle cx="73" cy="68" r="3.2" fill="#f4a62a" opacity="0.55"/>'
+    '<path d="M43 70Q50 75 57 70" stroke="#f29a38" stroke-width="2.8" stroke-linecap="round" fill="none"/>'
+    '<circle cx="27" cy="68" r="3.2" fill="#f29a38" opacity="0.55"/><circle cx="73" cy="68" r="3.2" fill="#f29a38" opacity="0.55"/>'
 )
 
 
@@ -232,7 +232,7 @@ def button(label: str, slug: str, primary: bool = False, index: int = 0) -> str:
         kit.svg_open(w, h, label)
         + kit.style()
         + f'<rect x="0.75" y="0.75" width="{w - 1.5}" height="{h - 1.5}" rx="9.25" fill="{kit.CARD}" stroke="{stroke}"/>'
-        + f'<rect x="0.75" y="0.75" width="{w - 1.5}" height="{h - 1.5}" rx="9.25" fill="rgba(106,90,205,0.14)" stroke="{ORCHID}" stroke-width="1.5" opacity="0">'
+        + f'<rect x="0.75" y="0.75" width="{w - 1.5}" height="{h - 1.5}" rx="9.25" fill="rgba(232,83,31,0.14)" stroke="{ORCHID}" stroke-width="1.5" opacity="0">'
         + kit.loop("opacity", "0;1;1;0;0", "0;0.0417;0.1917;0.2417;1", 6, 3 + index)
         + "</rect>"
         + icon(slug, x0, 12, 16, color)
@@ -246,7 +246,7 @@ def header(number: str, kicker: str, title: str, dark: bool, w: int = W) -> str:
     ink = "#f4f4f8" if dark else "#1f2328"
     meta = "rgba(255,255,255,0.62)" if dark else "rgba(31,35,40,0.7)"
     line = "rgba(255,255,255,0.12)" if dark else "rgba(31,35,40,0.15)"
-    label_color = ORCHID if dark else "#6a5acd"
+    label_color = ORCHID if dark else "#e8531f"
     return (
         kit.svg_open(w, 76, title)
         + kit.style()
@@ -396,7 +396,7 @@ def stack(mobile: bool = False) -> str:
         times = sorted({0.0, round(a0, 4), round(a0 + 0.02, 4), round(a1 - 0.02, 4), round(a1, 4), 1.0})
         vals = ["1" if a0 + 0.02 - 1e-6 <= t <= a1 - 0.02 + 1e-6 else "0" for t in times]
         parts.append(
-            f'<rect x="{pad}" y="{y}" width="{w - pad * 2}" height="{lh}" rx="12" fill="rgba(106,90,205,0.12)" stroke="{ORCHID}" stroke-width="1.5" opacity="0">'
+            f'<rect x="{pad}" y="{y}" width="{w - pad * 2}" height="{lh}" rx="12" fill="rgba(232,83,31,0.12)" stroke="{ORCHID}" stroke-width="1.5" opacity="0">'
             + kit.loop("opacity", ";".join(vals), ";".join(f"{t:g}" for t in times), 12)
             + "</rect>"
         )

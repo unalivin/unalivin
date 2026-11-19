@@ -15,17 +15,17 @@ from html import escape
 # ---------------------------------------------------------------- palette
 # Matches the portfolio: warm near-black, one blue family, green only for
 # live or ok, amber only for LeetCode and work waiting on review.
-BG = "#101014"  # every card's surface
-CARD = "#18181f"  # panels and tiles inside a card
-RAISED = "#252347"  # a selected or lifted tile
-BLUE = "#6a5acd"  # fills, rails, the primary button
-BLUE_EDGE = "#8576e0"  # outlines on a blue tint (4.3:1 and up)
-BLUE_LIGHT = "#a678b9"  # labels, links, the moving highlight
-SKY = "#f0d9b5"  # packets and second-level accents
-BLUE_EITHER = "#8576e0"  # for files shown on both GitHub themes with no background
-BLUE_TINT = "rgba(106,90,205,0.14)"  # the fill behind an emphasised tile
-GREEN = "#22c55e"
-AMBER = "#f4a62a"
+BG = "#050505"  # every card's surface
+CARD = "#0d0d0d"  # panels and tiles inside a card
+RAISED = "#2a1008"  # a selected or lifted tile
+BLUE = "#e8531f"  # fills, rails, the primary button
+BLUE_EDGE = "#ff7a45"  # outlines on a blue tint (4.3:1 and up)
+BLUE_LIGHT = "#ff7a45"  # labels, links, the moving highlight
+SKY = "#f29a38"  # packets and second-level accents
+BLUE_EITHER = "#ff7a45"  # for files shown on both GitHub themes with no background
+BLUE_TINT = "rgba(232,83,31,0.14)"  # the fill behind an emphasised tile
+GREEN = "#2fd58a"
+AMBER = "#f29a38"
 INK = "#f3f4f6"  # titles and values
 BODY = "rgba(255,255,255,0.78)"  # sentences
 META = "rgba(255,255,255,0.62)"  # captions; 4.5:1 and up on BG and CARD

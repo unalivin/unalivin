@@ -13,7 +13,7 @@ CREAM = kit.SKY
 SLATE = kit.BLUE_EDGE
 AMBER = kit.AMBER
 GREEN = kit.GREEN
-TONES = [ORCHID, CREAM, "#8576e0"]
+TONES = ["#ff7a45", "#f29a38", "#e8531f"]
 
 SHORT = {
     "forward-deployed": "MONITORING",
@@ -69,110 +69,17 @@ def _tick(x: float, y: float, color: str, i: int, n: int, dur: float = 6) -> str
 
 
 def scene(key: str, accent: str) -> str:
-    """An animated 200 x 96 vignette for the area."""
-    hair, strong = kit.HAIR_STRONG, kit.META
-    o = []
-    if key == "forward-deployed":
-        xs = [28, 72, 116, 160]
-        o.append(f'<path d="M{xs[0]} 40H{xs[-1]}" stroke="{hair}" stroke-width="2"/>')
-        o.append(kit.beam(f"M{xs[0]} 40H{xs[-1]}", 4, 0, 1.0, accent, 2.5, 14))
-        for i, x in enumerate(xs):
-            warn = i == 2
-            col = AMBER if warn else accent
-            o.append(f'<circle cx="{x}" cy="40" r="10" fill="{kit.BG}" stroke="{col}" stroke-width="2"/>')
-            o.append(f'<circle cx="{x}" cy="40" r="3.4" fill="{col}"/>')
-            if warn:
-                o.append(
-                    f'<circle cx="{x}" cy="40" r="10" fill="none" stroke="{AMBER}" stroke-width="1.5">'
-                    '<animate attributeName="r" values="10;19" dur="2s" repeatCount="indefinite"/>'
-                    '<animate attributeName="opacity" values="0.9;0" dur="2s" repeatCount="indefinite"/></circle>'
-                )
-        o.append(f'<rect x="28" y="66" width="132" height="8" rx="4" fill="{kit.HAIR_FILL}" stroke="{hair}"/>')
-        o.append(
-            f'<rect x="28" y="66" width="96" height="8" rx="4" fill="{AMBER}">'
-            + kit.loop("width", "30;96;96;30", "0;0.5;0.9;1", 6)
-            + "</rect>"
-        )
-    elif key == "landing-zones":
-        for i in range(4):
-            y = 10 + i * 21
-            o.append(f'<rect x="34" y="{y}" width="14" height="14" rx="4" fill="{kit.BG}" stroke="{accent}" stroke-width="1.6"/>')
-            o.append(_tick(41, y + 7.5, GREEN if i != 2 else AMBER, i, 5))
-            w = [112, 86, 100, 70][i]
-            o.append(f'<rect x="58" y="{y + 4}" width="{w}" height="6" rx="3" fill="{hair}"/>')
-    elif key == "iac-cicd":
-        xs = [10, 58, 106, 154]
-        for i in range(3):
-            o.append(f'<path d="M{xs[i] + 36} 48H{xs[i + 1]}" stroke="{hair}" stroke-width="2"/>')
-        o.append(kit.beam("M46 48H154", 5, 0, 0.8, accent, 3, 12))
-        for i, x in enumerate(xs):
-            o.append(f'<rect x="{x}" y="30" width="36" height="36" rx="8" fill="{kit.CARD}" stroke="{hair}"/>')
-            o.append(f'<rect x="{x + 8}" y="40" width="20" height="4" rx="2" fill="{hair}"/>')
-            o.append(f'<rect x="{x + 8}" y="50" width="12" height="4" rx="2" fill="{hair}"/>')
-            o.append(_tick(x + 18, 20, GREEN, i, 4))
-    elif key == "cloud-networking":
-        o.append(f'<rect x="10" y="14" width="68" height="68" rx="9" fill="{kit.BG}" stroke="{hair}"/>')
-        for i, w in enumerate([40, 28, 46]):
-            o.append(f'<rect x="20" y="{26 + i * 16}" width="{w}" height="5" rx="2.5" fill="{accent}" opacity="0.9"/>')
-        for i in range(3):
-            y = 14 + i * 26
-            o.append(f'<path d="M78 48C100 48 100 {y + 10} 124 {y + 10}" fill="none" stroke="{hair}" stroke-width="1.6"/>')
-            o.append(kit.beam(f"M78 48C100 48 100 {y + 10} 124 {y + 10}", 6, i * 0.9, 0.35, accent, 2.2, 14))
-            o.append(f'<rect x="124" y="{y}" width="66" height="20" rx="6" fill="{kit.CARD}" stroke="{hair}"/>')
-            o.append(
-                f'<circle cx="178" cy="{y + 10}" r="3.6" fill="{AMBER}">'
-                + kit.loop("fill", f"{AMBER};{AMBER};{GREEN};{GREEN}", "0;0.2;0.3;1", 6, i * 0.9)
-                + "</circle>"
-            )
-    elif key == "mlops-genai":
-        for i in range(5):
-            y = 12 + i * 16
-            w = [150, 120, 138, 104, 130][i]
-            hot = i == 2
-            o.append(f'<rect x="20" y="{y}" width="{w}" height="7" rx="3.5" fill="{AMBER if hot else hair}"' + (' opacity="0.9"' if hot else "") + "/>")
-        o.append(
-            f'<rect x="14" y="8" width="172" height="14" rx="4" fill="{accent}" opacity="0.18">'
-            '<animateTransform attributeName="transform" type="translate" values="0 0;0 54;0 0" dur="6s" repeatCount="indefinite"/></rect>'
-        )
-        o.append(
-            f'<g opacity="0">{kit.chip(128, 52, "ALERT", AMBER, 9, 18, 8)[0]}'
-            + kit.loop("opacity", "0;0;1;1;0", "0;0.3;0.4;0.8;0.9", 6)
-            + "</g>"
-        )
-    elif key == "agent-tooling":
-        o.append(f'<rect x="38" y="8" width="96" height="80" rx="8" fill="{kit.CARD}" stroke="{hair}"/>')
-        for i, w in enumerate([66, 52, 70, 44, 60]):
-            o.append(f'<rect x="48" y="{20 + i * 13}" width="{w}" height="5" rx="2.5" fill="{hair}"/>')
-        o.append(f'<rect x="48" y="46" width="70" height="5" rx="2.5" fill="{AMBER}" opacity="0.9"/>')
-        o.append(
-            f'<g><circle cx="0" cy="0" r="15" fill="{accent}" fill-opacity="0.14" stroke="{accent}" stroke-width="2.4"/>'
-            f'<path d="M11 11L22 22" stroke="{accent}" stroke-width="3" stroke-linecap="round"/>'
-            '<animateMotion dur="6s" repeatCount="indefinite" path="M58 28C84 28 100 40 118 58C100 70 84 70 58 56C84 40 70 30 58 28Z"/></g>'
-        )
-    else:
-        o.append(f'<rect x="10" y="14" width="86" height="64" rx="8" fill="{kit.BG}" stroke="{hair}"/>')
-        o.append(f'<path d="M10 28H96" stroke="{hair}"/>')
-        for i, cx in enumerate([20, 28, 36]):
-            o.append(f'<circle cx="{cx}" cy="21" r="2.2" fill="{hair}"/>')
-        o.append(f'<rect x="20" y="38" width="50" height="6" rx="3" fill="{accent}" opacity="0.9"/>')
-        o.append(f'<rect x="20" y="50" width="66" height="5" rx="2.5" fill="{hair}"/>')
-        o.append(f'<rect x="20" y="60" width="38" height="5" rx="2.5" fill="{hair}"/>')
-        for i in range(3):
-            y = 14 + i * 24
-            o.append(f'<rect x="128" y="{y}" width="62" height="18" rx="6" fill="{kit.CARD}" stroke="{hair}"/>')
-            o.append(f'<circle cx="178" cy="{y + 9}" r="3" fill="{GREEN}"/>')
-            o.append(f'<rect x="136" y="{y + 7}" width="26" height="4" rx="2" fill="{hair}"/>')
-        o.append(f'<path d="M96 40H128" stroke="{hair}" stroke-width="1.6"/><path d="M96 62H128" stroke="{hair}" stroke-width="1.6"/>')
-        o.append(kit.beam("M96 40H128", 4, 0, 0.5, accent, 2.4, 20))
-        o.append(kit.beam("M128 62H96", 4, 2, 0.5, CREAM, 2.4, 20))
-    return "".join(o)
+    """An animated 200 x 96 vignette showing a real artefact of the area."""
+    import scenes
+
+    return scenes.SCENES.get(key, scenes.web)(accent)
 
 
 def card(area: dict, index: int, w: float = 410, wide: bool = False) -> tuple[str, float]:
     key = area["key"]
     accent = TONES[index % 3]
     aw = 280 if wide else w
-    art_h = 132
+    art_h = 150
     pad = 22
     bx = aw + pad if wide else pad
     bw = (w - aw - pad * 2) if wide else (w - pad * 2)
