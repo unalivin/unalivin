@@ -34,7 +34,7 @@
 
 <picture><source media="(prefers-color-scheme: light) and (min-width: 1012px)" srcset="assets/svg/header-stats-light.svg?v=1a2b3e6d" /><source media="(prefers-color-scheme: dark) and (min-width: 1012px)" srcset="assets/svg/header-stats-dark.svg?v=1e08af81" /><source media="(prefers-color-scheme: light)" srcset="assets/svg/header-stats-light-mobile.svg?v=85ee78b6" /><source media="(prefers-color-scheme: dark)" srcset="assets/svg/header-stats-dark-mobile.svg?v=9f30372a" /><img src="assets/svg/header-stats-dark-mobile.svg?v=9f30372a" width="100%" alt="Coding Stats" /></picture>
 
-<a href="https://github.com/unalivin"><picture><img src="assets/svg/github.svg?v=6487393e" width="100%" alt="GitHub stats for @unalivin: 725 contributions last year, 27 day streak, 1 stars" /></picture></a>
+<a href="https://github.com/unalivin"><picture><img src="assets/svg/github.svg?v=1d14353d" width="100%" alt="GitHub stats for @unalivin: 726 contributions last year, 27 day streak, 1 stars" /></picture></a>
 
 <a href="https://leetcode.com/u/unalivinx/"><picture><img src="assets/svg/leetcode.svg?v=ff048599" width="100%" alt="LeetCode unalivinx: rating 0, top 0.0%, 0 contests, 0 solved, 0 submissions in the past year" /></picture></a>
 
