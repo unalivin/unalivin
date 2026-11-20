@@ -13,7 +13,7 @@ CREAM = kit.SKY
 SLATE = kit.BLUE_EDGE
 AMBER = kit.AMBER
 GREEN = kit.GREEN
-TONES = ["#a982ff", "#fd8f32", "#7022fc"]
+TONES = ["#ff8a5c", "#d9954f", "#ef562d"]
 
 SHORT = {
     "forward-deployed": "MONITORING",
