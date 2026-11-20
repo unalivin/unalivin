@@ -12,7 +12,7 @@ D = 8.0
 FONT = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
 BG, CARD = "#050505", "#0e0e0e"
 HAIR, META, BODY = "rgba(255,255,255,0.16)", "rgba(255,255,255,0.55)", "rgba(255,255,255,0.88)"
-ACC, GREEN, AMBER, RED = "#ff7a45", "#2fd58a", "#f29a38", "#ef4444"
+ACC, GREEN, AMBER, RED = "#a982ff", "#2fd58a", "#fd8f32", "#ef4444"
 END = 0.9  # the frame static mode shows
 
 

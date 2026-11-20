@@ -17,15 +17,15 @@ from html import escape
 # live or ok, amber only for LeetCode and work waiting on review.
 BG = "#050505"  # every card's surface
 CARD = "#0d0d0d"  # panels and tiles inside a card
-RAISED = "#2a1008"  # a selected or lifted tile
-BLUE = "#e8531f"  # fills, rails, the primary button
-BLUE_EDGE = "#ff7a45"  # outlines on a blue tint (4.3:1 and up)
-BLUE_LIGHT = "#ff7a45"  # labels, links, the moving highlight
-SKY = "#f29a38"  # packets and second-level accents
-BLUE_EITHER = "#ff7a45"  # for files shown on both GitHub themes with no background
-BLUE_TINT = "rgba(232,83,31,0.14)"  # the fill behind an emphasised tile
+RAISED = "#1a0b3a"  # a selected or lifted tile
+BLUE = "#7022fc"  # fills, rails, the primary button
+BLUE_EDGE = "#a982ff"  # outlines on a blue tint (4.3:1 and up)
+BLUE_LIGHT = "#a982ff"  # labels, links, the moving highlight
+SKY = "#fd8f32"  # packets and second-level accents
+BLUE_EITHER = "#a982ff"  # for files shown on both GitHub themes with no background
+BLUE_TINT = "rgba(112,34,252,0.14)"  # the fill behind an emphasised tile
 GREEN = "#2fd58a"
-AMBER = "#f29a38"
+AMBER = "#fd8f32"
 INK = "#f3f4f6"  # titles and values
 BODY = "rgba(255,255,255,0.78)"  # sentences
 META = "rgba(255,255,255,0.62)"  # captions; 4.5:1 and up on BG and CARD
